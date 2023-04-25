@@ -9,7 +9,7 @@ import com.example.kiparolessons.cleancodetest.domain.usecase.GetUserNameUseCase
 import com.example.kiparolessons.cleancodetest.domain.usecase.SaveUserNameUseCase
 import javax.inject.Inject
 
-class MainViewModelFactory @Inject constructor(
+class MainViewModelFactory(
     val getUserNameUseCase: GetUserNameUseCase,
     val saveUserNameUseCase: SaveUserNameUseCase
 ): ViewModelProvider.Factory {
