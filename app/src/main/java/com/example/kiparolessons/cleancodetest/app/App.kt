@@ -1,6 +1,7 @@
 package com.example.kiparolessons.cleancodetest.app
 
 import android.app.Application
+import com.example.kiparolessons.BuildConfig
 import com.example.kiparolessons.cleancodetest.di.appModule
 import com.example.kiparolessons.cleancodetest.di.dataModule
 import com.example.kiparolessons.cleancodetest.di.domainModule
@@ -14,7 +15,7 @@ class App : Application() {
         super.onCreate()
 
         startKoin {
-            androidLogger(Level.DEBUG)
+            androidLogger(Level.ERROR)
             androidContext(this@App)
             modules(listOf(appModule, domainModule, dataModule))
         }
