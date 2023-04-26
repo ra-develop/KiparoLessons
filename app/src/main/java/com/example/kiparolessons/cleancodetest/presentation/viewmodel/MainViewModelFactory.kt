@@ -7,16 +7,14 @@ import com.example.kiparolessons.cleancodetest.data.repository.UserRepositoryImp
 import com.example.kiparolessons.cleancodetest.data.storage.sharedprefs.SharedPrefUserStorage
 import com.example.kiparolessons.cleancodetest.domain.usecase.GetUserNameUseCase
 import com.example.kiparolessons.cleancodetest.domain.usecase.SaveUserNameUseCase
-import javax.inject.Inject
 
-class MainViewModelFactory @Inject constructor(
-    val getUserNameUseCase: GetUserNameUseCase,
-    val saveUserNameUseCase: SaveUserNameUseCase
+class MainViewModelFactory (
+    context: Context
 ): ViewModelProvider.Factory {
 
     ///(LazyThreadSafetyMode.NONE) - пишем для того, чтобы указать что нам не нужна многопоточнось
     // по умолчанию 'by lazy' синхронизирован
-/*
+
     private val userRepository by lazy(LazyThreadSafetyMode.NONE) {
         UserRepositoryImpl(userStorage = SharedPrefUserStorage(context = context))
     }
@@ -31,8 +29,6 @@ class MainViewModelFactory @Inject constructor(
             userRepository = userRepository
         )
     }
-
- */
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return MainViewModel(
